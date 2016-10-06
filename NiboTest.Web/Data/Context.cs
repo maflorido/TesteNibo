@@ -6,7 +6,7 @@ namespace NiboTest.Web.Data
 {
     public class Context : DbContext
     {
-        public Context() : base("NiboContext")
+        public Context() : base("NiboCntext")
         {            
             this.Configuration.LazyLoadingEnabled = true;
             this.Configuration.ProxyCreationEnabled = true;
