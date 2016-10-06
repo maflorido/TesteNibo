@@ -1,0 +1,45 @@
+﻿@using NiboTest.Web.ViewModels.Extrato;
+
+@model IEnumerable<ListaExtratoTransacao>
+
+
+@{
+    ViewBag.Title = "ListaExtratos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de Extratos e Transações</h2>
+
+@foreach (ListaExtratoTransacao extrato in Model)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <td>BANCO</td>
+                <td>CONTA</td>
+                <td>DATA INICIAL CONSULTA</td>
+                <td>DATA FINAL CONSULTA</td>
+                <td>SALDO FINAL</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@extrato.Banco</td>
+                <td>@extrato.Conta</td>
+                <td>@extrato.DataInicioExtrato</td>
+                <td>@extrato.DataFimExtrato</td>
+                <td>@extrato.SaldoFinal</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>TRANSAÇÕES</h2>
+
+
+    foreach (TransacaoExtrato transacaoItem in extrato.TransacoesExtrato)
+    {
+        <ul>
+            <li>@transacaoItem.DataTransacao @transacaoItem.ValorTransacao  @transacaoItem.DescricaoTransacao @transacaoItem.TipoTransacao</li>           
+        </ul>
+    }
+}
